@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="log-view:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/log_view_jar</output-path>
+    <root id="archive" name="log-view.jar">
+      <element id="module-output" name="log-view" />
+    </root>
+  </artifact>
+</component>

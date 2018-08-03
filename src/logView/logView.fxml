@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<GridPane fx:id="log_body" stylesheets="logView.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logView.LogView">
+    <columnConstraints>
+        <ColumnConstraints/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints valignment="TOP" prefHeight="50"/>
+        <RowConstraints />
+        <RowConstraints prefHeight="30"/>
+    </rowConstraints>
+
+    <FlowPane fx:id="log_query_bar" GridPane.halignment="LEFT"   GridPane.rowIndex="0" GridPane.columnIndex="0">
+
+        <Label text="目录 "/>
+        <ComboBox fx:id="dir"  />
+
+        <Label text="   "/>
+
+        <Label text="范围 " />
+        <ComboBox fx:id="range"  />
+
+        <Label text="   "/>
+
+        <Label text="类型 " />
+        <ComboBox fx:id="type"  />
+
+        <Label text="   "/>
+
+        <Label text="包含关键字 " />
+        <TextField fx:id="keyword" prefWidth="150"></TextField>
+
+        <Label text="   "/>
+
+        <Label text="排除关键字 " />
+        <TextField fx:id="except_keyword" prefWidth="150"></TextField>
+
+        <Label text="   "/>
+
+        <Label text="正则表达式 " />
+        <TextField fx:id="regex" prefWidth="150"></TextField>
+
+        <Label text="   "/>
+        <Button text="筛选" onMouseClicked="#click" />
+
+    </FlowPane>
+
+    <TableView fx:id="log_table"   GridPane.rowIndex="1" GridPane.columnIndex="0" editable="true">
+        <columns>
+            <TableColumn fx:id="dateTimeCol" text="时间" prefWidth="150" >
+                <cellValueFactory>
+                    <PropertyValueFactory property="dateTime" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="typeCol" text="类型" prefWidth="100">
+                <cellValueFactory>
+                    <PropertyValueFactory property="type" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="contentCol"   text="内容">
+                <cellValueFactory>
+                    <PropertyValueFactory property="content" />
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+
+    <FlowPane  GridPane.halignment="LEFT"   GridPane.rowIndex="2" GridPane.columnIndex="0">
+        <Label fx:id="log_count" text="0个项目" />
+    </FlowPane>
+</GridPane>
+
+

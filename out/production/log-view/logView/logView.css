@@ -1,0 +1,14 @@
+#log_body{ }
+#log_query_bar{-fx-padding: 10px;}
+#log_table{}
+
+#log_body .table-column .label{
+    -fx-alignment: left;
+    -fx-label-padding: 0 10;
+}
+
+#log_body .table-column {
+    -fx-padding: 8 4;
+}
+
+#log_count{ -fx-padding: 5 10;}
