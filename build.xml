@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="logView" default="run" basedir=".">
+    <!--<property />设置变量-->
+    <property name="src" value="src"/>
+    <property name="dest" value="classes"/>
+    <property name="logViewJar" value="log-view.jar"/>
+    <property name="jar-lib" value="lib"/>
+    <property name="releaseDir" value="release"/>
+
+    <path id="compile.classpath">
+        <fileset dir="${jar-lib}">  <!-- 编译java程序用到的第三方包所在的目录 -->
+            <include name="*.jar" />
+        </fileset>
+    </path>
+
+    <target name="init">
+        <mkdir dir="${dest}"/>
+    </target>
+
+
+    <target name="copy">
+        <copy todir="${jar-lib}">
+            <fileset dir="./lib">  <!-- 编译java程序用到的第三方包所在的目录 -->
+                <include name="*.jar" />
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="copy2debugTool">
+        <copy todir="C:\Users\宏鸿\Desktop\ProtoBuffer接口调试工具">
+            <fileset dir="${releaseDir}">  <!-- 编译java程序用到的第三方包所在的目录 -->
+                <include name="*.*" />
+            </fileset>
+        </copy>
+        <copy todir="C:\dev\z-and-h-h5\trunk\plan\server_debug_tool">
+            <fileset dir="${releaseDir}">  <!-- 编译java程序用到的第三方包所在的目录 -->
+                <include name="*.*" />
+            </fileset>
+        </copy>
+    </target>
+
+    <!--开始运行编译-->
+    <target name="compile" depends="init">
+        <javac srcdir="${src}" destdir="${dest}">
+            <classpath refid="compile.classpath" />
+        </javac>
+    </target>
+    <!--创建jar包-->
+    <target name="build" depends="compile">
+        <pathconvert property="mf.classpath" pathsep=" ">
+            <mapper>
+                <chainedmapper>
+                    <!-- jar包文件只留文件名，去掉目录信息 -->
+                    <flattenmapper/>
+                    <!-- add lib/ prefix -->
+                    <globmapper from="*" to="${jar-lib}/*"/>
+                </chainedmapper>
+            </mapper>
+            <path refid="compile.classpath"/>
+        </pathconvert>
+
+        <copy todir="${dest}">
+            <fileset dir="${src}">
+                <include name="**/*.css" />
+                <include name="**/*.fxml" />
+            </fileset>
+        </copy>
+
+        <jar jarfile="${releaseDir}/${logViewJar}" basedir="${dest}">
+            <manifest>
+                <attribute name="Main-Class" value="logView.Main" />
+                <attribute name="Class-Path" value="${mf.classpath}"/>
+            </manifest>
+        </jar>
+
+        <copy todir="${releaseDir}">
+            <fileset dir=".">
+                <include name="log.xml" />
+            </fileset>
+        </copy>
+    </target>
+    <!--开始运行-->
+    <target name="run" depends="build">
+        <java jar="${logViewJar}" fork="true"/>
+    </target>
+    <!--删除生成的文件-->
+    <target name="clean" depends="run">
+        <delete dir="${dest}"/>
+        <delete file="${logViewJar}"/>
+    </target>
+    <target name="rerun" depends="clean,run">
+        <ant target="clean" />
+        <ant target="run" />
+    </target>
+
+</project>
