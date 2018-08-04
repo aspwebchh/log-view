@@ -20,6 +20,8 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class LogUtil {
+    public static final String TYPE_ALL = "ALL";
+
     public static String getLogPath() {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 
@@ -51,6 +53,7 @@ public class LogUtil {
 
     public static List<String> getLogTypes() {
         List<String> types = new ArrayList<>();
+        types.add(TYPE_ALL);
         types.add("ERROR");
         types.add("WARN");
         types.add("INFO");

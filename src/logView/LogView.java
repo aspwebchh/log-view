@@ -48,6 +48,7 @@ public class LogView {
         List<String> types = LogUtil.getLogTypes();
         ObservableList<String> obList = FXCollections.observableArrayList(types);
         type.setItems(obList);
+        type.setValue(obList.get(0));
     }
 
     private void initTable() {
@@ -79,10 +80,6 @@ public class LogView {
         String sRegex = regex.getText();
         if(selectDir == null) {
             Common.showAlert("未选择目录");
-            return;
-        }
-        if(selectRange == null) {
-            Common.showAlert("未选择范围");
             return;
         }
         List<LogItem> logItems = LogUtil.getLogContent(selectDir, selectRange.value, selectType,sKeyword,sExceptKeyword,sRegex);

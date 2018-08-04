@@ -94,6 +94,9 @@ public class LogItem {
         if( Common.isNullOrEmpty(type) ) {
             return true;
         }
+        if( type.equals(LogUtil.TYPE_ALL)) {
+            return true;
+        }
         return type.trim().toUpperCase().equals(item.type.trim().toUpperCase());
     }
 
