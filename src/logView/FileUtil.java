@@ -9,12 +9,12 @@ public class FileUtil {
                 InputStreamReader read = new InputStreamReader(new FileInputStream(file), "UTF-8");
                 BufferedReader bufferedReader = new BufferedReader(read);
                 String lineTxt = bufferedReader.readLine();
-                String result = "";
+                StringBuilder result = new StringBuilder();
                 while (lineTxt != null) {
-                    result += lineTxt;
+                    result.append(lineTxt);
                     lineTxt =  bufferedReader.readLine();
                 }
-                return result;
+                return result.toString();
             }
         } catch (UnsupportedEncodingException | FileNotFoundException e) {
 

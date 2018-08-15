@@ -127,3 +127,9 @@ public class LogItem {
     }
 
 }
+
+//备份调试代码
+//        LogItem tmpItem = new LogItem("2018-11-11 21:00:00","error","123");
+//        List<LogItem> items = new ArrayList<>();
+//        items.add(tmpItem);
+//        return items;

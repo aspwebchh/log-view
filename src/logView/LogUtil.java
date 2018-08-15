@@ -64,11 +64,11 @@ public class LogUtil {
     }
 
     public static List<String> getPathNames() {
-         String rootPath = getLogPath();
-         File file = new File(rootPath);
-         File[] files = file.listFiles();
-         List<String> pathNames = Arrays.stream(files).filter( item -> item.isDirectory()).map(item -> item.getName()).collect(Collectors.toList());
-         return pathNames;
+        String rootPath = getLogPath();
+        File file = new File(rootPath);
+        File[] files = file.listFiles();
+        List<String> pathNames = Arrays.stream(files).filter( item -> item.isDirectory()).map(item -> item.getName()).collect(Collectors.toList());
+        return pathNames;
     }
 
     public static  List<LogItem> getLogContent( String dir , int range, String type, String keyword, String exceptKeyword, String regex) {
@@ -76,9 +76,8 @@ public class LogUtil {
         String path = rootPath + "\\" + dir;
         File file = new File(path);
         List<File> logFiles = Arrays.stream(file.listFiles()).filter( item -> item.isFile() && inRange(item.getName(), range) ).collect(Collectors.toList());
-
         CountDownLatch countDownLatch = new CountDownLatch(logFiles.size());
-        ExecutorService executorService = Executors.newCachedThreadPool();
+        ExecutorService executorService = Executors.newFixedThreadPool(9);
         List<LogItem> allLogItem = new ArrayList<>();
 
         for(File fileItem : logFiles) {
