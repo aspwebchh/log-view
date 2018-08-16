@@ -12,14 +12,12 @@ public class FileUtil {
                 StringBuilder result = new StringBuilder();
                 while (lineTxt != null) {
                     result.append(lineTxt);
-                    lineTxt =  bufferedReader.readLine();
+                    lineTxt = bufferedReader.readLine();
                 }
                 return result.toString();
             }
-        } catch (UnsupportedEncodingException | FileNotFoundException e) {
-
         } catch (IOException e) {
-
+            e.printStackTrace();
         }
         return null;
     }
