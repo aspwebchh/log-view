@@ -1,5 +1,7 @@
 package logView;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
@@ -23,6 +25,7 @@ import java.awt.*;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.time.LocalDate;
 import java.util.List;
 
 public class LogView {
@@ -37,6 +40,10 @@ public class LogView {
     private TextField keyword, except_keyword, regex;
     @FXML
     private Label log_count;
+    @FXML
+    private DatePicker date;
+
+    private int status = 0;
 
     private void initDirQueryControl() {
         List<String> pathNames = LogUtil.getPathNames();
@@ -55,6 +62,26 @@ public class LogView {
         ObservableList<String> obList = FXCollections.observableArrayList(types);
         type.setItems(obList);
         type.setValue(obList.get(0));
+    }
+
+    private void  initDatePickerAndRangeEvent() {
+        date.setOnAction(e->{
+            if( (this.status & 2) > 0 )  {
+                return;
+            }
+            this.status = 1;
+            range.setValue(null);
+            this.status = 0;
+        });
+
+        range.setOnAction(e->{
+            if( (this.status & 1) > 0 )  {
+                return;
+            }
+            this.status = 2;
+            date.setValue(null);
+            this.status = 0;
+        });
     }
 
     private void initTable() {
@@ -83,21 +110,33 @@ public class LogView {
         initRangeQueryControl();
         initTypeQueryControl();
         initTable();
+        initDatePickerAndRangeEvent();
+    }
+
+    private int getRangeValue() {
+        if( range.getValue() == null) {
+            return 0;
+        } else {
+            RangeQueryControlItem selectRange = (RangeQueryControlItem) range.getValue();
+            return selectRange.value;
+        }
     }
 
     @FXML
     public void click() {
         String selectDir = (String) dir.getValue();
-        RangeQueryControlItem selectRange = (RangeQueryControlItem) range.getValue();
+        int range = getRangeValue();
         String selectType = (String) type.getValue();
         String sKeyword = keyword.getText().trim();
         String sExceptKeyword = except_keyword.getText().trim();
         String sRegex = regex.getText();
+        LocalDate dt = date.getValue();
+
         if (selectDir == null) {
             Common.showAlert("未选择目录");
             return;
         }
-        List<LogItem> logItems = LogUtil.getLogContent(selectDir, selectRange.value, selectType, sKeyword, sExceptKeyword, sRegex);
+        List<LogItem> logItems = LogUtil.getLogContent(selectDir, range, selectType, sKeyword, sExceptKeyword, sRegex, dt);
         log_table.setItems(FXCollections.observableArrayList(logItems));
         log_count.setText(logItems.size() + "个项目");
     }

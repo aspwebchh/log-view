@@ -11,6 +11,7 @@ import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathFactory;
 import java.io.File;
+import java.time.LocalDate;
 import java.util.*;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
@@ -71,11 +72,22 @@ public class LogUtil {
         return pathNames;
     }
 
-    public static  List<LogItem> getLogContent( String dir , int range, String type, String keyword, String exceptKeyword, String regex) {
+    public static  List<LogItem> getLogContent( String dir , int range, String type, String keyword, String exceptKeyword, String regex, LocalDate date) {
         String rootPath = getLogPath();
         String path = rootPath + "\\" + dir;
         File file = new File(path);
-        List<File> logFiles = Arrays.stream(file.listFiles()).filter( item -> item.isFile() && inRange(item.getName(), range) ).collect(Collectors.toList());
+        List<File> logFiles = Arrays.stream(file.listFiles()).filter( item -> {
+            if( !item.isFile()) {
+                return false;
+            }
+            if( date != null) {
+                return dateMatch(item.getName(), date);
+            }
+            if(  range > 0 ) {
+                return inRange(item.getName(), range);
+            }
+            return true;
+        } ).collect(Collectors.toList());
         CountDownLatch countDownLatch = new CountDownLatch(logFiles.size());
         ExecutorService executorService = Executors.newFixedThreadPool(9);
         List<LogItem> allLogItem = new ArrayList<>();
@@ -103,15 +115,32 @@ public class LogUtil {
         return allLogItem;
     }
 
-    private static boolean inRange( String name, int range ) {
-        Pattern pattern = Pattern.compile("^(\\d+)-(\\d+)-(\\d+)");
-        Matcher matcher = pattern.matcher(name);
-        if( !matcher.find()) {
+    private static boolean dateMatch(String fileName, LocalDate date) {
+        int year = date.getYear();
+        int month = date.getMonthValue();
+        int day = date.getDayOfMonth();
+
+        FileName2Date fileName2Date = new FileName2Date(fileName);
+        if( !fileName2Date.isValid()) {
             return false;
         }
-        int year = Integer.parseInt( matcher.group(1) );
-        int month = Integer.parseInt( matcher.group(2) );
-        int day = Integer.parseInt( matcher.group(3) );
+
+        int fYear = fileName2Date.getYear();
+        int fMonth = fileName2Date.getMonth();
+        int fDay = fileName2Date.getDay();
+
+        return year == fYear && month == fMonth && fDay == day;
+    }
+
+    private static boolean inRange( String name, int range ) {
+        FileName2Date fileName2Date = new FileName2Date(name);
+        if( !fileName2Date.isValid()) {
+            return false;
+        }
+
+        int year = fileName2Date.getYear();
+        int month = fileName2Date.getMonth();
+        int day = fileName2Date.getDay();
 
         Calendar calendar = new GregorianCalendar(year, month - 1, day,0,0,0);
 

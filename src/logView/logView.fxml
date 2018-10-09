@@ -29,6 +29,11 @@
 
         <Label text="   "/>
 
+        <Label text="日期 " />
+        <DatePicker fx:id="date" prefWidth="100" />
+
+        <Label text="   "/>
+
         <Label text="类型 " />
         <ComboBox fx:id="type"  />
 
