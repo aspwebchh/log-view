@@ -24,13 +24,13 @@
 
         <Label text="   "/>
 
-        <Label text="范围 " />
-        <ComboBox fx:id="range"  />
+        <Label text="开始日期 " />
+        <DatePicker fx:id="beginDate" prefWidth="110" />
 
         <Label text="   "/>
 
-        <Label text="日期 " />
-        <DatePicker fx:id="date" prefWidth="100" />
+        <Label text="结束日期 " />
+        <DatePicker fx:id="endDate" prefWidth="110" />
 
         <Label text="   "/>
 
@@ -40,17 +40,17 @@
         <Label text="   "/>
 
         <Label text="包含关键字 " />
-        <TextField fx:id="keyword" prefWidth="150"></TextField>
+        <TextField fx:id="keyword" prefWidth="120"></TextField>
 
         <Label text="   "/>
 
         <Label text="排除关键字 " />
-        <TextField fx:id="except_keyword" prefWidth="150"></TextField>
+        <TextField fx:id="except_keyword" prefWidth="120"></TextField>
 
         <Label text="   "/>
 
         <Label text="正则表达式 " />
-        <TextField fx:id="regex" prefWidth="150"></TextField>
+        <TextField fx:id="regex" prefWidth="120"></TextField>
 
         <Label text="   "/>
         <Button text="筛选" onMouseClicked="#click" />

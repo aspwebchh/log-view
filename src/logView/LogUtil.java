@@ -72,7 +72,7 @@ public class LogUtil {
         return pathNames;
     }
 
-    public static  List<LogItem> getLogContent( String dir , int range, String type, String keyword, String exceptKeyword, String regex, LocalDate date) {
+    public static  List<LogItem> getLogContent( String dir , String type, String keyword, String exceptKeyword, String regex, LocalDate beginDate, LocalDate endDate) {
         String rootPath = getLogPath();
         String path = rootPath + "\\" + dir;
         File file = new File(path);
@@ -80,13 +80,7 @@ public class LogUtil {
             if( !item.isFile()) {
                 return false;
             }
-            if( date != null) {
-                return dateMatch(item.getName(), date);
-            }
-            if(  range > 0 ) {
-                return inRange(item.getName(), range);
-            }
-            return true;
+            return inRange(item.getName(), beginDate, endDate);
         } ).collect(Collectors.toList());
         CountDownLatch countDownLatch = new CountDownLatch(logFiles.size());
         ExecutorService executorService = Executors.newFixedThreadPool(9);
@@ -115,24 +109,7 @@ public class LogUtil {
         return allLogItem;
     }
 
-    private static boolean dateMatch(String fileName, LocalDate date) {
-        int year = date.getYear();
-        int month = date.getMonthValue();
-        int day = date.getDayOfMonth();
-
-        FileName2Date fileName2Date = new FileName2Date(fileName);
-        if( !fileName2Date.isValid()) {
-            return false;
-        }
-
-        int fYear = fileName2Date.getYear();
-        int fMonth = fileName2Date.getMonth();
-        int fDay = fileName2Date.getDay();
-
-        return year == fYear && month == fMonth && fDay == day;
-    }
-
-    private static boolean inRange( String name, int range ) {
+    private static boolean inRange( String name, LocalDate beginDate, LocalDate endDate ) {
         FileName2Date fileName2Date = new FileName2Date(name);
         if( !fileName2Date.isValid()) {
             return false;
@@ -141,13 +118,10 @@ public class LogUtil {
         int year = fileName2Date.getYear();
         int month = fileName2Date.getMonth();
         int day = fileName2Date.getDay();
-
         Calendar calendar = new GregorianCalendar(year, month - 1, day,0,0,0);
 
-        Calendar now = Calendar.getInstance();
-        Calendar endCal = new GregorianCalendar(now.get(Calendar.YEAR), now.get(Calendar.MONTH), now.get(Calendar.DAY_OF_MONTH),23,59,59);
-        Calendar beginCal = new GregorianCalendar(now.get(Calendar.YEAR), now.get(Calendar.MONTH), now.get(Calendar.DAY_OF_MONTH),23,59,59);
-        beginCal.add(Calendar.DAY_OF_MONTH, -range);
+        Calendar beginCal = new GregorianCalendar(beginDate.getYear(), beginDate.getMonthValue() - 1, beginDate.getDayOfMonth(),0,0,0);
+        Calendar endCal = new GregorianCalendar(endDate.getYear(), endDate.getMonthValue() - 1, endDate.getDayOfMonth(),23,59,59);
 
         if( calendar.getTimeInMillis() <= endCal.getTimeInMillis() && calendar.getTimeInMillis() >= beginCal.getTimeInMillis() ) {
             return true;

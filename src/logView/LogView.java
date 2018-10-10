@@ -26,12 +26,14 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.time.LocalDate;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 public class LogView {
 
     @FXML
-    private ComboBox dir, range, type;
+    private ComboBox dir, type;
     @FXML
     private TableView log_table;
     @FXML
@@ -41,7 +43,9 @@ public class LogView {
     @FXML
     private Label log_count;
     @FXML
-    private DatePicker date;
+    private DatePicker beginDate;
+    @FXML
+    private DatePicker endDate;
 
     private int status = 0;
 
@@ -51,12 +55,6 @@ public class LogView {
         dir.setItems(obList);
     }
 
-    private void initRangeQueryControl() {
-        ObservableList<RangeQueryControlItem> datalist = RangeQueryControlItem.data();
-        range.setItems(datalist);
-        range.setValue(datalist.get(1));
-    }
-
     private void initTypeQueryControl() {
         List<String> types = LogUtil.getLogTypes();
         ObservableList<String> obList = FXCollections.observableArrayList(types);
@@ -64,24 +62,14 @@ public class LogView {
         type.setValue(obList.get(0));
     }
 
-    private void  initDatePickerAndRangeEvent() {
-        date.setOnAction(e->{
-            if( (this.status & 2) > 0 )  {
-                return;
-            }
-            this.status = 1;
-            range.setValue(null);
-            this.status = 0;
-        });
+    private void  initDatePicker() {
+        LocalDate end =  LocalDate.now();//(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH));
+        endDate.setValue(end);
 
-        range.setOnAction(e->{
-            if( (this.status & 1) > 0 )  {
-                return;
-            }
-            this.status = 2;
-            date.setValue(null);
-            this.status = 0;
-        });
+        Calendar cal = new GregorianCalendar();
+        cal.add(Calendar.DAY_OF_MONTH,-3);
+        LocalDate begin = LocalDate.of(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH) + 1, cal.get(Calendar.DAY_OF_MONTH));
+        beginDate.setValue(begin);
     }
 
     private void initTable() {
@@ -107,36 +95,37 @@ public class LogView {
     @FXML
     protected void initialize() {
         initDirQueryControl();
-        initRangeQueryControl();
         initTypeQueryControl();
         initTable();
-        initDatePickerAndRangeEvent();
-    }
-
-    private int getRangeValue() {
-        if( range.getValue() == null) {
-            return 0;
-        } else {
-            RangeQueryControlItem selectRange = (RangeQueryControlItem) range.getValue();
-            return selectRange.value;
-        }
+        initDatePicker();
     }
 
     @FXML
     public void click() {
         String selectDir = (String) dir.getValue();
-        int range = getRangeValue();
         String selectType = (String) type.getValue();
         String sKeyword = keyword.getText().trim();
         String sExceptKeyword = except_keyword.getText().trim();
         String sRegex = regex.getText();
-        LocalDate dt = date.getValue();
+        LocalDate beginDateValue = beginDate.getValue();
+        LocalDate endDateValue = endDate.getValue();
 
         if (selectDir == null) {
             Common.showAlert("未选择目录");
             return;
         }
-        List<LogItem> logItems = LogUtil.getLogContent(selectDir, range, selectType, sKeyword, sExceptKeyword, sRegex, dt);
+
+        if( beginDateValue == null) {
+            Common.showAlert("未选择开始日期");
+            return;
+        }
+
+        if( endDateValue == null) {
+            Common.showAlert("未选择结束日期");
+            return;
+        }
+
+        List<LogItem> logItems = LogUtil.getLogContent(selectDir, selectType, sKeyword, sExceptKeyword, sRegex, beginDateValue, endDateValue);
         log_table.setItems(FXCollections.observableArrayList(logItems));
         log_count.setText(logItems.size() + "个项目");
     }
