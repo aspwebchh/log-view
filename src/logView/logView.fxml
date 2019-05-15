@@ -7,79 +7,100 @@
 <?import javafx.scene.layout.*?>
 
 <?import javafx.scene.control.cell.PropertyValueFactory?>
-<GridPane fx:id="log_body" stylesheets="logView.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logView.LogView">
+<GridPane fx:id="log_body" stylesheets="logView.css" xmlns="http://javafx.com/javafx/8.0.121"
+          xmlns:fx="http://javafx.com/fxml/1" fx:controller="logView.LogView">
     <columnConstraints>
         <ColumnConstraints/>
     </columnConstraints>
     <rowConstraints>
+        <RowConstraints valignment="TOP" prefHeight="20"/>
         <RowConstraints valignment="TOP" prefHeight="50"/>
-        <RowConstraints />
+        <RowConstraints/>
         <RowConstraints prefHeight="30"/>
     </rowConstraints>
 
-    <FlowPane fx:id="log_query_bar" GridPane.halignment="LEFT"   GridPane.rowIndex="0" GridPane.columnIndex="0">
+    <MenuBar fx:id="menuBar" GridPane.rowIndex="0" GridPane.columnIndex="0">
+        <Menu text="功能">
+            <MenuItem text="下载日志" onAction="#download"></MenuItem>
+        </Menu>
+    </MenuBar>
+
+    <FlowPane fx:id="log_query_bar" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.columnIndex="0">
 
         <Label text="目录 "/>
-        <ComboBox fx:id="dir"  />
+        <ComboBox fx:id="dir"/>
 
         <Label text="   "/>
 
-        <Label text="开始日期 " />
-        <DatePicker fx:id="beginDate" prefWidth="110" />
+        <Label text="开始日期 "/>
+        <DatePicker fx:id="beginDate" prefWidth="110"/>
 
         <Label text="   "/>
 
-        <Label text="结束日期 " />
-        <DatePicker fx:id="endDate" prefWidth="110" />
+        <Label text="结束日期 "/>
+        <DatePicker fx:id="endDate" prefWidth="110"/>
 
         <Label text="   "/>
 
-        <Label text="类型 " />
-        <ComboBox fx:id="type"  />
+        <Label text="类型 "/>
+        <ComboBox fx:id="type"/>
 
         <Label text="   "/>
 
-        <Label text="包含关键字 " />
+        <Label text="包含关键字 "/>
         <TextField fx:id="keyword" prefWidth="120"></TextField>
 
         <Label text="   "/>
 
-        <Label text="排除关键字 " />
+        <Label text="排除关键字 "/>
         <TextField fx:id="except_keyword" prefWidth="120"></TextField>
 
         <Label text="   "/>
 
-        <Label text="正则表达式 " />
+        <Label text="正则表达式 "/>
         <TextField fx:id="regex" prefWidth="120"></TextField>
 
         <Label text="   "/>
-        <Button text="筛选" onMouseClicked="#click" />
+        <Button text="筛选" onMouseClicked="#click"/>
 
     </FlowPane>
 
-    <TableView fx:id="log_table"   GridPane.rowIndex="1" GridPane.columnIndex="0" editable="true">
+    <TableView fx:id="log_table" GridPane.rowIndex="2" GridPane.columnIndex="0" editable="true">
         <columns>
-            <TableColumn fx:id="dateTimeCol" text="时间" prefWidth="150" >
+            <TableColumn fx:id="dateTimeCol" text="时间" prefWidth="150">
                 <cellValueFactory>
-                    <PropertyValueFactory property="dateTime" />
+                    <PropertyValueFactory property="dateTime"/>
                 </cellValueFactory>
             </TableColumn>
             <TableColumn fx:id="typeCol" text="类型" prefWidth="100">
                 <cellValueFactory>
-                    <PropertyValueFactory property="type" />
+                    <PropertyValueFactory property="type"/>
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn fx:id="contentCol"   text="内容">
+            <TableColumn fx:id="contentCol" text="内容">
                 <cellValueFactory>
-                    <PropertyValueFactory property="content" />
+                    <PropertyValueFactory property="content"/>
                 </cellValueFactory>
             </TableColumn>
         </columns>
     </TableView>
 
-    <FlowPane  GridPane.halignment="LEFT"   GridPane.rowIndex="2" GridPane.columnIndex="0">
+
+
+    <GridPane  GridPane.rowIndex="3" GridPane.columnIndex="0">
+        <columnConstraints>
+            <ColumnConstraints prefWidth="100"/>
+            <ColumnConstraints/>
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints/>
+        </rowConstraints>
+
         <Label fx:id="log_count" text="0个项目" />
-    </FlowPane>
+        <FlowPane  fx:id="msg_pane" GridPane.rowIndex="0" GridPane.columnIndex="1" alignment="CENTER_RIGHT">
+            <Label fx:id="msg" style="-fx-padding: 0 10" />
+        </FlowPane>
+    </GridPane>
 </GridPane>
 
 

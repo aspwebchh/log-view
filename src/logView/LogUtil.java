@@ -24,32 +24,7 @@ public class LogUtil {
     public static final String TYPE_ALL = "ALL";
 
     public static String getLogPath() {
-        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-
-        try {
-            String confFilePath = System.getProperty("user.dir") + "\\log.xml";
-            DocumentBuilder db = dbf.newDocumentBuilder();
-            Document doc = db.parse(new File(confFilePath));
-
-            Element rootElement = doc.getDocumentElement();
-
-            XPathFactory xf = XPathFactory.newInstance();
-            XPath xpath = xf.newXPath();
-            XPathExpression xexp = null;
-            NodeList nodes = null;
-            Element el = null;
-
-            xexp = xpath.compile("/log");
-            nodes = (NodeList) xexp.evaluate(rootElement, XPathConstants.NODESET);
-            el = (Element) nodes.item(0);
-            {
-                String path = el.getAttribute("path");
-                return path;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
+        return Config.getPath();
     }
 
     public static List<String> getLogTypes() {

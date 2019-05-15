@@ -5,8 +5,9 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 
-import java.io.PrintWriter;
-import java.io.StringWriter;
+import java.io.*;
+import java.net.URL;
+import java.net.URLConnection;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -52,7 +53,40 @@ public class Common {
         return formatter.format(date);
     }
 
-    public static boolean isNullOrEmpty( String str ) {
+    public static boolean isNullOrEmpty(String str) {
         return str == null || str.isEmpty();
+    }
+
+    public static String httpGet(String strUrl) {
+        InputStream inputStream = null;
+        InputStreamReader inputStreamReader = null;
+        BufferedReader bufferedReader = null;
+        try {
+            URL url = new URL(strUrl);
+            URLConnection urlConnection = url.openConnection();
+            inputStream = urlConnection.getInputStream();
+            inputStreamReader = new InputStreamReader(inputStream, "utf8");
+            bufferedReader = new BufferedReader(inputStreamReader);
+            StringBuilder content = new StringBuilder();
+            String line = bufferedReader.readLine();
+            while (line != null) {
+                content.append(line);
+                content.append("\n");
+                line = bufferedReader.readLine();
+            }
+            return content.toString();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            Common.showAlert(e.getMessage());
+        } finally {
+            try {
+                if (inputStream != null) inputStream.close();
+                if (inputStreamReader != null) inputStreamReader.close();
+                if (bufferedReader != null) bufferedReader.close();
+            } catch (IOException e) {
+            }
+        }
+        return null;
     }
 }
