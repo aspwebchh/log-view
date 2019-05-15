@@ -79,7 +79,7 @@ public class LogView {
         endDate.setValue(end);
 
         Calendar cal = new GregorianCalendar();
-        cal.add(Calendar.DAY_OF_MONTH,-3);
+        cal.add(Calendar.DAY_OF_MONTH,-15);
         LocalDate begin = LocalDate.of(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH) + 1, cal.get(Calendar.DAY_OF_MONTH));
         beginDate.setValue(begin);
     }
