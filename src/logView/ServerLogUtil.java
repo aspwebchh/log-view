@@ -14,13 +14,13 @@ import java.util.regex.Pattern;
 public class ServerLogUtil {
 
 
-    public static void download(String dirUrl, ExecutorService executorService , Consumer<String> onSaved) {
+    public static void download(String dirUrl, ExecutorService executorService, Consumer<String> onSaved) {
         String rootUrl = dirUrl;
         List<ServerLogUrlItem> urls = handleDir(rootUrl);
         for (int i = 0; i < urls.size(); i++) {
             ServerLogUrlItem urlItem = urls.get(i);
             if (urlItem.isFile()) {
-                executorService.execute(()-> handleFile(urlItem, onSaved));
+                executorService.execute(() -> handleFile(urlItem, onSaved));
             } else {
                 File dir = new File(urlItem.getDir());
                 if (!dir.exists()) {
@@ -38,11 +38,11 @@ public class ServerLogUtil {
         if (!matcher.find()) {
             return true;
         }
-        int year = Integer.parseInt( matcher.group(1) );
-        int month = Integer.parseInt( matcher.group(2) );
-        int day = Integer.parseInt( matcher.group(3) );
+        int year = Integer.parseInt(matcher.group(1));
+        int month = Integer.parseInt(matcher.group(2));
+        int day = Integer.parseInt(matcher.group(3));
         Calendar now = Calendar.getInstance();
-        if( now.get(Calendar.YEAR) == year && (now.get(Calendar.MONTH) + 1) == month && now.get(Calendar.DAY_OF_MONTH) == day) {
+        if (now.get(Calendar.YEAR) == year && (now.get(Calendar.MONTH) + 1) == month && now.get(Calendar.DAY_OF_MONTH) == day) {
             return true;
         } else {
             return false;
@@ -55,15 +55,29 @@ public class ServerLogUtil {
             return;
         }
         String content = Common.httpGet(serverLogUrlItem.getFullUrl());
+        FileOutputStream fileOutputStream = null;
+        OutputStreamWriter outputStreamWriter = null;
+        BufferedWriter bufferedWriter = null;
         try {
-            FileWriter fileWriter = new FileWriter(file);
-            fileWriter.write(content);
-            fileWriter.close();
-            if( onSaved != null) {
+            fileOutputStream = new FileOutputStream(file);
+            outputStreamWriter = new OutputStreamWriter(fileOutputStream, "utf8");
+            bufferedWriter = new BufferedWriter(outputStreamWriter);
+            bufferedWriter.write(content);
+            bufferedWriter.flush();
+            bufferedWriter.close();
+            outputStreamWriter.close();
+            fileOutputStream.close();
+            if (onSaved != null) {
                 onSaved.accept(serverLogUrlItem.getFullUrl());
             }
         } catch (IOException e) {
             e.printStackTrace();
+        }finally {
+            try{
+                if( fileOutputStream != null )  fileOutputStream.close();
+                if(outputStreamWriter!= null) outputStreamWriter.close();
+                if( bufferedWriter != null) bufferedWriter.close();
+            }catch (IOException e) { }
         }
     }
 
