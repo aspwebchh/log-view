@@ -1,41 +1,26 @@
 package logView;
 
 import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.concurrent.Task;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.control.cell.TextFieldTableCell;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Priority;
-import javafx.util.Callback;
-import logView.Common;
-import logView.LogItem;
-import logView.LogUtil;
-import logView.RangeQueryControlItem;
+import javafx.stage.Stage;
 
-import javax.xml.soap.SAAJMetaFactory;
-import java.awt.*;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.io.StringWriter;
+import java.io.IOException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class LogView {
@@ -147,12 +132,17 @@ public class LogView {
         log_count.setText(logItems.size() + "个项目");
     }
 
+
+
     @FXML
     public void download() {
+        CopyOnWriteArrayList<LogFileItem> downloadFilePaths = new CopyOnWriteArrayList<>();
+
         msg.setText("服务器日志下载中...");
         AtomicInteger count = new AtomicInteger(0);
         ThreadPoolExecutor executorService = (ThreadPoolExecutor)Executors.newFixedThreadPool(50);
-        ServerLogUtil.download(Config.getUrl(), executorService, finishUrl->{
+        ServerLogUtil.download(Config.getUrl(), executorService, logFileItem->{
+            downloadFilePaths.add(logFileItem);
             count.incrementAndGet();
         });
         executorService.shutdown();
@@ -167,7 +157,26 @@ public class LogView {
             Platform.runLater(() -> {
                 msg.setText( count.get() +  "个项目下载完毕");
                 initDirQueryControl();
+                DownloadFileList.setLogFileItemList(downloadFilePaths);
             });
         }).start();
+    }
+
+    @FXML
+    public void showDownloadFile() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("DownloadFileList.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("下载日志列表");
+            Scene scene = new Scene(root, 800, 500);
+            stage.setScene(scene);
+            stage.show();
+
+            scene.getStylesheets().add(
+                    getClass().getResource("logView.css")
+                            .toExternalForm());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

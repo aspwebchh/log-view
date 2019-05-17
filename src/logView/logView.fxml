@@ -98,7 +98,7 @@
 
         <Label fx:id="log_count" text="0个项目" />
         <FlowPane  fx:id="msg_pane" GridPane.rowIndex="0" GridPane.columnIndex="1" alignment="CENTER_RIGHT">
-            <Label fx:id="msg" style="-fx-padding: 0 10" />
+            <Label fx:id="msg" style="-fx-padding: 0 10" onMouseClicked="#showDownloadFile" />
         </FlowPane>
     </GridPane>
 </GridPane>

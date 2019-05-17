@@ -8,6 +8,7 @@ import javafx.scene.layout.Priority;
 import java.io.*;
 import java.net.URL;
 import java.net.URLConnection;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -89,4 +90,21 @@ public class Common {
         }
         return null;
     }
+    public static long strTime2UnixTimestamp(String strTime) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        try {
+            Date date = sdf.parse(strTime);
+            return date.getTime();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public static String unixTimestamp2StrTime(long unixTimestamp) {
+        Date date = new Date(unixTimestamp);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(date);
+    }
+
 }

@@ -1,7 +1,5 @@
 package logView;
 
-import javafx.scene.control.Label;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -14,7 +12,7 @@ import java.util.regex.Pattern;
 public class ServerLogUtil {
 
 
-    public static void download(String dirUrl, ExecutorService executorService, Consumer<String> onSaved) {
+    public static void download(String dirUrl, ExecutorService executorService, Consumer<LogFileItem> onSaved) {
         String rootUrl = dirUrl;
         List<ServerLogUrlItem> urls = handleDir(rootUrl);
         for (int i = 0; i < urls.size(); i++) {
@@ -49,7 +47,7 @@ public class ServerLogUtil {
         }
     }
 
-    private static void handleFile(ServerLogUrlItem serverLogUrlItem, Consumer<String> onSaved) {
+    private static void handleFile(ServerLogUrlItem serverLogUrlItem, Consumer<LogFileItem> onSaved) {
         File file = new File(serverLogUrlItem.getDir());
         if (file.exists() && !isCover(file.getName())) {
             return;
@@ -57,14 +55,13 @@ public class ServerLogUtil {
         String content = Common.httpGet(serverLogUrlItem.getFullUrl());
         try (FileOutputStream fileOutputStream = new FileOutputStream(file);
              OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fileOutputStream, "utf8");
-             BufferedWriter bufferedWriter = new BufferedWriter(outputStreamWriter);) {
+             BufferedWriter bufferedWriter = new BufferedWriter(outputStreamWriter)) {
             bufferedWriter.write(content);
             bufferedWriter.flush();
-            bufferedWriter.close();
-            outputStreamWriter.close();
-            fileOutputStream.close();
+
             if (onSaved != null) {
-                onSaved.accept(serverLogUrlItem.getFullUrl());
+                LogFileItem logFileItem = new LogFileItem(serverLogUrlItem.getDir(),Common.unixTimestamp2StrTime(System.currentTimeMillis()),file.length());
+                onSaved.accept(logFileItem);
             }
         } catch (IOException e) {
             e.printStackTrace();

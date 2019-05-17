@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<GridPane fx:id="log_body" stylesheets="logView.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logView.DownloadFileList">
+    <columnConstraints>
+        <ColumnConstraints/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints valignment="TOP" prefHeight="0"/>
+        <RowConstraints />
+        <RowConstraints prefHeight="30"/>
+    </rowConstraints>
+
+    <TableView fx:id="log_table"   GridPane.rowIndex="1" GridPane.columnIndex="0" editable="true">
+        <columns>
+            <TableColumn fx:id="pathCol" text="文件">
+                <cellValueFactory>
+                    <PropertyValueFactory property="path" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="sizeCol" text="大小(KB)" prefWidth="100" >
+                <cellValueFactory>
+                    <PropertyValueFactory property="size" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="timeCol" text="时间" prefWidth="200" >
+                <cellValueFactory>
+                    <PropertyValueFactory property="time" />
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+
+    <FlowPane  GridPane.halignment="LEFT"   GridPane.rowIndex="2" GridPane.columnIndex="0">
+        <Label fx:id="log_count" text="0个项目" />
+    </FlowPane>
+</GridPane>
