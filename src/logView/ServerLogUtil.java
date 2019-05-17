@@ -55,13 +55,9 @@ public class ServerLogUtil {
             return;
         }
         String content = Common.httpGet(serverLogUrlItem.getFullUrl());
-        FileOutputStream fileOutputStream = null;
-        OutputStreamWriter outputStreamWriter = null;
-        BufferedWriter bufferedWriter = null;
-        try {
-            fileOutputStream = new FileOutputStream(file);
-            outputStreamWriter = new OutputStreamWriter(fileOutputStream, "utf8");
-            bufferedWriter = new BufferedWriter(outputStreamWriter);
+        try (FileOutputStream fileOutputStream = new FileOutputStream(file);
+             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fileOutputStream, "utf8");
+             BufferedWriter bufferedWriter = new BufferedWriter(outputStreamWriter);) {
             bufferedWriter.write(content);
             bufferedWriter.flush();
             bufferedWriter.close();
@@ -72,12 +68,6 @@ public class ServerLogUtil {
             }
         } catch (IOException e) {
             e.printStackTrace();
-        }finally {
-            try{
-                if( fileOutputStream != null )  fileOutputStream.close();
-                if(outputStreamWriter!= null) outputStreamWriter.close();
-                if( bufferedWriter != null) bufferedWriter.close();
-            }catch (IOException e) { }
         }
     }
 
