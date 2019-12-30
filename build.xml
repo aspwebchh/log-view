@@ -39,9 +39,11 @@
         </copy>
     </target>
 
+    <typedef resource="org/jetbrains/kotlin/ant/antlib.xml" classpath="C:\Users\宏鸿\.IntelliJIdea2018.1\config\plugins\Kotlin\kotlinc\lib\kotlin-ant.jar"/>
     <!--开始运行编译-->
     <target name="compile" depends="init">
-        <javac srcdir="${src}" destdir="${dest}">
+        <javac srcdir="${src}" destdir="${dest}" includeAntRuntime="false" >
+            <withKotlin/>
             <classpath refid="compile.classpath" />
         </javac>
     </target>

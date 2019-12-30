@@ -1,23 +1,11 @@
 package logView;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.xpath.XPath;
-import javax.xml.xpath.XPathConstants;
-import javax.xml.xpath.XPathExpression;
-import javax.xml.xpath.XPathFactory;
 import java.io.File;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class LogUtil {
@@ -85,7 +73,7 @@ public class LogUtil {
     }
 
     private static boolean inRange( String name, LocalDate beginDate, LocalDate endDate ) {
-        FileName2Date fileName2Date = new FileName2Date(name);
+        FileName2Date2 fileName2Date = new FileName2Date2(name);
         if( !fileName2Date.isValid()) {
             return false;
         }

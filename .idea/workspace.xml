@@ -7,18 +7,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/logView/Config.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/logView/ServerLogUrlItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/logView/ServerLogUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/fastjson_1_2_20.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/logView/FileName2Date2.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log-view.iml" beforeDir="false" afterPath="$PROJECT_DIR$/log-view.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log.xml" beforeDir="false" afterPath="$PROJECT_DIR$/log.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/release/log-view.jar" beforeDir="false" afterPath="$PROJECT_DIR$/release/log-view.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/release/log.xml" beforeDir="false" afterPath="$PROJECT_DIR$/release/log.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/logView/Common.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logView/Common.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/logView/LogUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logView/LogUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/logView/LogView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logView/LogView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logView/logView.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/logView/logView.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logView/logView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/logView/logView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logView/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logView/Main.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -95,88 +97,46 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="logView.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/logView/logView.fxml">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/logView/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-        </entry>
-      </file>
-      <file leaf-file-name="LogUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/logView/LogUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="32" column="27" lean-forward="true" selection-start-line="32" selection-start-column="27" selection-end-line="32" selection-end-column="27" />
-              <folding>
-                <element signature="e#751#752#0" expanded="true" />
-                <element signature="e#790#791#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="399">
+              <caret line="27" column="26" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Common.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/logView/Common.java">
+      <file leaf-file-name="DownloadFileList.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/logView/DownloadFileList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="617">
-              <caret line="85" column="34" selection-start-line="85" selection-start-column="20" selection-end-line="85" selection-end-column="34" />
-              <folding>
-                <element signature="e#1705#1706#0" expanded="true" />
-                <element signature="e#1756#1757#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LogView.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/logView/LogView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="160" column="21" lean-forward="true" selection-start-line="160" selection-start-column="21" selection-end-line="160" selection-end-column="21" />
+            <state relative-caret-position="184">
+              <caret line="39" selection-start-line="39" selection-end-line="39" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3259#3260#0" expanded="true" />
-                <element signature="e#3349#3350#0" expanded="true" />
+                <element signature="e#611#612#0" expanded="true" />
+                <element signature="e#653#654#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="log.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/log.xml">
+      <file leaf-file-name="LogView.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/logView/LogView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="2" selection-start-line="2" selection-end-line="3" />
+            <state relative-caret-position="207">
+              <caret line="160" column="71" lean-forward="true" selection-start-line="160" selection-start-column="71" selection-end-line="160" selection-end-column="71" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="log.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/release/log.xml">
+      <file leaf-file-name="LogFileItem.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/logView/LogFileItem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="34" column="69" lean-forward="true" selection-start-line="34" selection-start-column="69" selection-end-line="34" selection-end-column="69" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Executors.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_101/src.zip!/java/util/concurrent/Executors.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="88" column="37" selection-start-line="88" selection-start-column="19" selection-end-line="88" selection-end-column="37" />
+            <state relative-caret-position="76">
+              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -184,24 +144,10 @@
       <file leaf-file-name="ServerLogUtil.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/logView/ServerLogUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-595">
-              <caret line="22" column="72" selection-start-line="22" selection-start-column="72" selection-end-line="22" selection-end-column="72" />
+            <state relative-caret-position="473">
+              <caret line="62" column="95" selection-start-line="62" selection-start-column="95" selection-end-line="62" selection-end-column="95" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ServerLogUrlItem.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/logView/ServerLogUrlItem.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="722">
-              <caret line="38" column="5" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#532#533#0" expanded="true" />
-                <element signature="e#566#567#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -214,12 +160,15 @@
       <list>
         <option value="CSS File" />
         <option value="Class" />
+        <option value="Kotlin Class" />
+        <option value="Kotlin File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>log.xml</find>
+      <find>http</find>
     </findStrings>
     <dirStrings>
       <dir>C:\dev\log-view</dir>
@@ -237,23 +186,30 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/logView/Controller.java" />
-        <option value="$PROJECT_DIR$/src/logView/Main.java" />
-        <option value="$PROJECT_DIR$/build.xml" />
         <option value="$PROJECT_DIR$/src/logView/RangeQueryControlItem.java" />
         <option value="$PROJECT_DIR$/src/logView/LogItem.java" />
         <option value="$PROJECT_DIR$/src/logView/FileUtil.java" />
         <option value="$PROJECT_DIR$/src/logView/FileName2Date.java" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/logView/logView.css" />
-        <option value="$PROJECT_DIR$/src/logView/logView.fxml" />
         <option value="$PROJECT_DIR$/src/logView/Config.java" />
-        <option value="$PROJECT_DIR$/src/logView/LogUtil.java" />
-        <option value="$PROJECT_DIR$/src/logView/Common.java" />
         <option value="$PROJECT_DIR$/src/logView/ServerLogUrlItem.java" />
-        <option value="$PROJECT_DIR$/src/logView/ServerLogUtil.java" />
-        <option value="$PROJECT_DIR$/src/logView/LogView.java" />
-        <option value="$PROJECT_DIR$/log.xml" />
         <option value="$PROJECT_DIR$/release/log.xml" />
+        <option value="$PROJECT_DIR$/log.xml" />
+        <option value="$PROJECT_DIR$/src/logView/logView.fxml" />
+        <option value="$PROJECT_DIR$/src/logView/DownloadFileList.fxml" />
+        <option value="$PROJECT_DIR$/src/logView/ServerLogUtil.java" />
+        <option value="$PROJECT_DIR$/src/logView/LogFileItem.java" />
+        <option value="$PROJECT_DIR$/src/logView/DownloadFileList.java" />
+        <option value="$PROJECT_DIR$/src/logView/Common.java" />
+        <option value="$PROJECT_DIR$/build.xml" />
+        <option value="$PROJECT_DIR$/src/logView/TestKt.kt" />
+        <option value="$PROJECT_DIR$/src/logView/Main.java" />
+        <option value="$PROJECT_DIR$/classes/logView/logView.fxml" />
+        <option value="$PROJECT_DIR$/src/logView/LogUtil.java" />
+        <option value="$PROJECT_DIR$/src/logView/FileName2Date2.kt" />
+        <option value="$PROJECT_DIR$/src/logView/ServerLogManager.kt" />
+        <option value="$PROJECT_DIR$/src/logView/LogView.java" />
       </list>
     </option>
   </component>
@@ -282,8 +238,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -294,12 +248,12 @@
             <path>
               <item name="log-view" type="b2602c69:ProjectViewProjectNode" />
               <item name="log-view" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="log-view" type="b2602c69:ProjectViewProjectNode" />
               <item name="log-view" type="462c0819:PsiDirectoryNode" />
-              <item name="release" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="log-view" type="b2602c69:ProjectViewProjectNode" />
@@ -317,6 +271,8 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -339,10 +295,14 @@
     <property name="recentsLimit" value="5" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\dev\log-view\src\logView" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="logView" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\dev\log-view\src" />
       <recent name="C:\dev\log-view\src\logView" />
     </key>
   </component>
@@ -469,12 +429,26 @@
       <workItem from="1547019867982" duration="5000" />
       <workItem from="1554086181438" duration="1324000" />
       <workItem from="1557471911885" duration="305000" />
-      <workItem from="1557905574421" duration="9469000" />
+      <workItem from="1557905574421" duration="9534000" />
+      <workItem from="1557915509823" duration="203000" />
+      <workItem from="1557915725142" duration="147000" />
+      <workItem from="1557917970746" duration="352000" />
+      <workItem from="1557969013941" duration="1589000" />
+      <workItem from="1558059014915" duration="49000" />
+      <workItem from="1558075114403" duration="4127000" />
+      <workItem from="1568182372153" duration="59000" />
+      <workItem from="1568262735399" duration="958000" />
+      <workItem from="1568270131623" duration="484000" />
+      <workItem from="1568279585667" duration="309000" />
+      <workItem from="1568613719768" duration="104000" />
+      <workItem from="1577692933864" duration="4000" />
+      <workItem from="1577693099468" duration="1418000" />
+      <workItem from="1577708522140" duration="2522000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52410000" />
+    <option name="totallyTimeSpent" value="64800000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1186" extended-state="6" />
@@ -494,9 +468,8 @@
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.3295129" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.14765458" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.17004265" />
       <window_info anchor="right" id="Database" order="3" weight="0.32995737" />
-      <window_info anchor="bottom" id="Find" order="1" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" visible="true" weight="0.10127932" />
       <window_info id="UI Designer" order="2" />
@@ -506,6 +479,7 @@
       <window_info anchor="right" id="JetGradle" order="3" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Changes" order="7" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Profiler" order="7" />
@@ -549,82 +523,6 @@
     </buildFile>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/logView/FileUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1463">
-          <caret line="77" column="42" selection-start-line="77" selection-start-column="42" selection-end-line="77" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/logView/RangeQueryControlItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
-          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/logView/LogItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1083">
-          <caret line="65" column="36" selection-start-line="65" selection-start-column="36" selection-end-line="65" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/logView/LogView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1596">
-          <caret line="84" column="50" selection-start-line="84" selection-start-column="50" selection-end-line="84" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1463">
-          <caret line="77" column="42" lean-forward="true" selection-start-line="77" selection-start-column="42" selection-end-line="77" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/logView/LogUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1311">
-          <caret line="86" column="50" selection-start-line="86" selection-start-column="50" selection-end-line="86" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/logView/RangeQueryControlItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="22" column="61" lean-forward="true" selection-start-line="22" selection-start-column="61" selection-end-line="22" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/logView/LogView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1596">
-          <caret line="84" column="50" selection-start-line="84" selection-start-column="50" selection-end-line="84" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/logView/LogItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1957">
-          <caret line="111" column="24" lean-forward="true" selection-start-line="111" selection-start-column="24" selection-end-line="111" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1425">
@@ -692,12 +590,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/logView/logView.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
           <caret line="2" column="22" lean-forward="true" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/logView/Main.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -707,12 +605,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/logView/logView.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="7" column="11" lean-forward="true" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/logView/LogView.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -779,28 +677,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/logView/FileName2Date.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_101/src.zip!/java/util/GregorianCalendar.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1773">
           <caret line="675" column="11" selection-start-line="675" selection-start-column="11" selection-end-line="675" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/logView/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="e#746#747#0" expanded="true" />
-            <element signature="e#774#775#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -811,53 +691,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/logView/FileUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="31" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/logView/LogItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-513">
-          <caret line="66" column="38" selection-start-line="66" selection-start-column="38" selection-end-line="66" selection-end-column="38" />
-          <folding>
-            <element signature="e#1454#1455#0" expanded="true" />
-            <element signature="e#1487#1488#0" expanded="true" />
-            <element signature="e#1537#1538#0" expanded="true" />
-            <element signature="e#1566#1567#0" expanded="true" />
-            <element signature="e#1619#1620#0" expanded="true" />
-            <element signature="e#1651#1652#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/logView/Config.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#485#486#0" expanded="true" />
-            <element signature="e#512#513#0" expanded="true" />
-            <element signature="e#549#550#0" expanded="true" />
-            <element signature="e#575#576#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/logView/Common.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="617">
-          <caret line="85" column="34" selection-start-line="85" selection-start-column="20" selection-end-line="85" selection-end-column="34" />
-          <folding>
-            <element signature="e#1705#1706#0" expanded="true" />
-            <element signature="e#1756#1757#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_101/src.zip!/java/lang/Object.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="434">
@@ -865,25 +698,6 @@
           <folding>
             <element signature="e#10065#10066#0" expanded="true" />
             <element signature="e#10148#10149#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/logView/logView.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/logView/LogUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="32" column="27" lean-forward="true" selection-start-line="32" selection-start-column="27" selection-end-line="32" selection-end-column="27" />
-          <folding>
-            <element signature="e#751#752#0" expanded="true" />
-            <element signature="e#790#791#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -902,58 +716,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/logView/ServerLogUrlItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="722">
-          <caret line="38" column="5" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#532#533#0" expanded="true" />
-            <element signature="e#566#567#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_101/src.zip!/java/util/concurrent/Executors.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
+        <state relative-caret-position="893">
           <caret line="88" column="37" selection-start-line="88" selection-start-column="19" selection-end-line="88" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/logView/ServerLogUtil.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_101/src.zip!/java/io/BufferedWriter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-595">
-          <caret line="22" column="72" selection-start-line="22" selection-start-column="72" selection-end-line="22" selection-end-column="72" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="34" column="69" lean-forward="true" selection-start-line="34" selection-start-column="69" selection-end-line="34" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/logView/LogView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="160" column="21" lean-forward="true" selection-start-line="160" selection-start-column="21" selection-end-line="160" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3259#3260#0" expanded="true" />
-            <element signature="e#3349#3350#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" selection-start-line="2" selection-end-line="3" />
+        <state relative-caret-position="226">
+          <caret line="123" column="9" selection-start-line="123" selection-start-column="9" selection-end-line="123" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -961,6 +734,184 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
           <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_101/src.zip!/java/util/concurrent/CopyOnWriteArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="90" column="13" selection-start-line="90" selection-start-column="13" selection-end-line="90" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logView/DownloadFileList.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="627">
+          <caret line="33" column="60" selection-start-line="33" selection-start-column="60" selection-end-line="33" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logView/ServerLogUrlItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="627">
+          <caret line="36" column="66" selection-start-line="36" selection-start-column="66" selection-end-line="36" selection-end-column="66" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logView/FileUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="31" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logView/logView.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log-view.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="684">
+          <caret line="36" column="38" selection-start-line="36" selection-start-column="38" selection-end-line="36" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_101/javafx-src.zip!/javafx/stage/Window.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="652" column="52" selection-start-line="652" selection-start-column="40" selection-end-line="652" selection-end-column="52" />
+          <folding>
+            <element signature="e#23012#23013#0" expanded="true" />
+            <element signature="e#23063#23064#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/logView/logView.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="100" column="26" selection-start-line="100" selection-start-column="26" selection-end-line="100" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logView/LogItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="66" column="38" selection-start-line="66" selection-start-column="38" selection-end-line="66" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logView/Config.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="39" column="34" selection-start-line="39" selection-start-column="34" selection-end-line="39" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#485#486#0" expanded="true" />
+            <element signature="e#512#513#0" expanded="true" />
+            <element signature="e#549#550#0" expanded="true" />
+            <element signature="e#575#576#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logView/Common.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="664">
+          <caret line="76" column="13" selection-start-line="76" selection-start-column="13" selection-end-line="76" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logView/FileName2Date2.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="32" lean-forward="true" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logView/FileName2Date.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="12" column="15" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logView/LogUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1191">
+          <caret line="81" column="45" lean-forward="true" selection-start-line="81" selection-start-column="45" selection-end-line="81" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logView/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="27" column="26" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logView/DownloadFileList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#611#612#0" expanded="true" />
+            <element signature="e#653#654#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logView/LogFileItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logView/ServerLogUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="473">
+          <caret line="62" column="95" selection-start-line="62" selection-start-column="95" selection-end-line="62" selection-end-column="95" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logView/ServerLogManager.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="23" lean-forward="true" selection-start-line="6" selection-start-column="8" selection-end-line="7" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logView/LogView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="160" column="71" lean-forward="true" selection-start-line="160" selection-start-column="71" selection-end-line="160" selection-end-column="71" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
