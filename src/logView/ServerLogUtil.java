@@ -29,7 +29,7 @@ public class ServerLogUtil {
         }
     }
 
-
+    //是否覆盖
     private static boolean isCover(String fileName) {
         Pattern pattern = Pattern.compile("(\\d+)-(\\d+)-(\\d+)");
         Matcher matcher = pattern.matcher(fileName);
@@ -52,6 +52,10 @@ public class ServerLogUtil {
         if (file.exists() && !isCover(file.getName())) {
             return;
         }
+        //非15天内的日志不更新
+        if(!serverLogUrlItem.within15day()) {
+            return;
+        }
         String content = Common.httpGet(serverLogUrlItem.getFullUrl());
         try (FileOutputStream fileOutputStream = new FileOutputStream(file);
              OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fileOutputStream, "utf8");
@@ -60,7 +64,7 @@ public class ServerLogUtil {
             bufferedWriter.flush();
 
             if (onSaved != null) {
-                LogFileItem logFileItem = new LogFileItem(serverLogUrlItem.getDir(),Common.unixTimestamp2StrTime(System.currentTimeMillis()),file.length());
+                LogFileItem logFileItem = new LogFileItem(serverLogUrlItem.getDir(), serverLogUrlItem.getDateString(), file.length());
                 onSaved.accept(logFileItem);
             }
         } catch (IOException e) {
@@ -74,10 +78,12 @@ public class ServerLogUtil {
         if (content == null) {
             return result;
         }
-        Pattern pattern = Pattern.compile("href=\"([^\\.][^\"]+)\"");
+        Pattern pattern = Pattern.compile("href=\"([^\\.][^\"]+)\".+?(\\d+-\\w+-\\d+\\s+\\d+:\\d+)");
         Matcher matcher = pattern.matcher(content);
         while (matcher.find()) {
-            result.add(new ServerLogUrlItem(parentUrl, matcher.group(1)));
+            String file = matcher.group(1);
+            String date = matcher.group(2);
+            result.add(new ServerLogUrlItem(parentUrl, file, date));
         }
         return result;
     }
