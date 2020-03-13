@@ -59,7 +59,7 @@ public class DownloadFileList {
         });
 
         List<LogFileItem> logs = logFileItemList.stream().filter(item -> !item.isLogback()).collect(Collectors.toList());
-        logs.sort((a, b) -> (int) (b.getSize() - a.getSize()));
+        logs.sort((a, b) ->  (int)(Common.strTime2UnixTimestamp(b.getTime()) - Common.strTime2UnixTimestamp(a.getTime())));
         log_table.setItems(FXCollections.observableArrayList(logs));
         log_count.setText(logFileItemList.size() + "个项目");
 
